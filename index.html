@@ -3,99 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bin Mahmood Electronic — Premium Store</title>
-<meta name="description" content="Bin Mahmood Electronic — premium products at honest prices, delivered across Pakistan. Cash on delivery, Easypaisa, JazzCash and cards accepted.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<title>Bin Mahmood Electronic — Best Online Electronics Store in Pakistan Since 1956</title>
+<link rel="icon" href="assets/logo.svg">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-  <section class="hero wrap">
-    <span class="kick" id="heroKicker"></span>
-    <h1 id="heroTitle"></h1>
-    <p id="heroText"></p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a class="btn" href="shop.html">Shop the Collection</a>
-      <a class="btn ghost" href="shop.html?sale=1">View Sale Items</a>
+
+<div class="topbar"><div class="wrap">
+  <span>Pakistan's Trusted Electronics Store — <b>Since 1956</b> · 17 Showrooms in Peshawar</span>
+  <span>📞 <b>+92 334 900 1195</b> &nbsp;·&nbsp; ✉️ weavers2025ai@gmail.com &nbsp;·&nbsp; Free Delivery Across Pakistan</span>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <div class="head-in">
+    <button class="burger" onclick="document.getElementById('catbar').scrollIntoView({behavior:'smooth'})">☰</button>
+    <a class="logo" href="index.html"><img src="assets/logo.svg" alt="Bin Mahmood Electronic"><span class="lt"><b>BIN MAHMOOD</b><span>ELECTRONIC</span></span></a>
+    <form class="search" action="shop.html" method="get"><input name="q" placeholder="Search for products, brands and categories…"><button type="submit">Search</button></form>
+    <div class="hotline"><small>Call / WhatsApp</small><b>+92 334 900 1195</b></div>
+    <div class="hicons">
+      <a class="nicon" href="account.html" title="My Account">👤</a>
+      <a class="nicon" href="checkout.html" title="Cart">🛒<span class="cartCount">0</span></a>
     </div>
-    <div class="hero-img"><img id="heroImg" src="https://www.aysonline.pk/wp-content/uploads/2026/08/yoast-banner.jpg" alt="Featured collection"></div>
-    <div class="stats">
-      <div><b id="statProducts">170+</b><span>Products</span></div>
-      <div><b>17</b><span>Showrooms</span></div>
-      <div><b>Free</b><span>Nationwide Delivery</span></div>
-      <div><b>1956</b><span>Trusted Since</span></div>
+  </div>
+</div>
+<nav class="catbar" id="catbar"><div class="wrap" id="catnav"></div></nav>
+</header>
+
+<!-- HERO — banners always fit inside the screen -->
+<section class="hero"><div class="slides" id="heroSlides"></div>
+  <button class="harr prev" onclick="hMove(-1)">‹</button>
+  <button class="harr next" onclick="hMove(1)">›</button>
+  <div class="hdots" id="hdots"></div>
+</section>
+
+<div class="wrap">
+  <section class="sec">
+    <div class="sec-head"><div><div class="eyebrow">Categories</div><h2>Shop by Category</h2><p>2,100+ original products with official manufacturer warranty.</p></div><a class="viewall" href="shop.html">View All Products →</a></div>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><div><div class="eyebrow">Limited Time</div><h2>Deals of the Day</h2><p>Biggest discounts across the store — updated daily.</p></div><a class="viewall" href="shop.html?sort=sale">All Deals →</a></div>
+    <div class="rail" id="deals"></div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><div><div class="eyebrow">Cooling</div><h2>Air Conditioners</h2></div><a class="viewall" href="shop.html?cat=Air Conditioners">View All →</a></div>
+    <div class="pgrid" id="sec-ac"></div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><div><div class="eyebrow">Kitchen &amp; Home</div><h2>Refrigerators</h2></div><a class="viewall" href="shop.html?cat=Refrigerators">View All →</a></div>
+    <div class="pgrid" id="sec-fridge"></div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><div><div class="eyebrow">Entertainment</div><h2>LED TVs</h2></div><a class="viewall" href="shop.html?cat=LED TVs">View All →</a></div>
+    <div class="pgrid" id="sec-tv"></div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><div><div class="eyebrow">Top Brands</div><h2>Shop by Brand</h2></div></div>
+    <div class="brands" id="brands"></div>
+  </section>
+
+  <section class="sec" style="padding-bottom:6px">
+    <div class="perks">
+      <div class="perk"><div class="ic">🏛️</div><h3>Since 1956</h3><p>Serving Pakistan for nearly 70 years with 17 showrooms in Peshawar.</p></div>
+      <div class="perk"><div class="ic">✅</div><h3>100% Original Products</h3><p>Every product is genuine and backed by official manufacturer warranty.</p></div>
+      <div class="perk"><div class="ic">🚚</div><h3>Free Nationwide Delivery</h3><p>Free and safe delivery across Pakistan on your orders.</p></div>
+      <div class="perk"><div class="ic">💳</div><h3>Easy Payments</h3><p>Cash on delivery, Easypaisa, JazzCash and bank transfer accepted.</p></div>
     </div>
   </section>
+</div>
 
-  <section class="block wrap">
-    <div class="sec-head"><div><h2>Shop by Category</h2><p>Find exactly what you are looking for</p></div><a class="more" href="shop.html">All products →</a></div>
-    <div class="cats" id="catTiles"></div>
-  </section>
+<footer><div class="wrap">
+  <div class="foot-in">
+    <div>
+      <a class="logo" href="index.html" style="margin-bottom:14px"><img src="assets/logo.svg" alt="Bin Mahmood Electronic"><span class="lt"><b>BIN MAHMOOD</b><span>ELECTRONIC</span></span></a>
+      <p>Best online electronics store in Pakistan since 1956. 100% original products with official manufacturer warranty.</p>
+    </div>
+    <div><h4>Shop</h4><div id="foot-cats"></div></div>
+    <div><h4>Customer Care</h4><a href="shop.html">All Products</a><a href="checkout.html">Cart &amp; Checkout</a><a href="account.html">My Account</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a></div>
+    <div><h4>Get in Touch</h4><p>📞 Call / WhatsApp: +92 334 900 1195</p><p>✉️ weavers2025ai@gmail.com</p><p>📍 17 Showrooms — Peshawar, Pakistan</p><p>🕘 Open 7 days a week</p></div>
+  </div>
+  <div class="foot-bar"><span>© 2026 Bin Mahmood Electronic. All rights reserved.</span><span>COD · Easypaisa · JazzCash · Bank Transfer</span></div>
+</div></footer>
 
-  <section class="block wrap">
-    <div class="sec-head"><div><h2>Best Sellers</h2><p>Our most loved products right now</p></div>
-      <div class="sl-nav"><button onclick="slideMove(-1)" aria-label="Previous">‹</button><button onclick="slideMove(1)" aria-label="Next">›</button></div></div>
-    <div class="slider"><div class="slider-track" id="bestTrack"></div></div>
-    <div class="dots" id="bestDots"></div>
-  </section>
+<!-- quick view -->
+<div class="modal" id="qvModal"><div class="modal-card">
+  <div class="mi"><img id="qvImg" alt=""></div>
+  <div class="md">
+    <div style="display:flex;justify-content:space-between;align-items:start"><span class="cat" id="qvCat" style="color:var(--blue);font-size:11.5px;font-weight:600;letter-spacing:.6px;text-transform:uppercase"></span><button onclick="closeQV()" style="border:0;background:none;font-size:21px;cursor:pointer;color:var(--muted)">✕</button></div>
+    <h3 id="qvName" style="font-size:20px;color:var(--ink);margin:6px 0 4px"></h3>
+    <p style="color:var(--muted);font-size:13px">Brand: <b id="qvBrand"></b> · 100% original · Official warranty</p>
+    <div class="prices" style="margin:14px 0"><span class="now" id="qvPrice" style="font-size:22px;color:var(--navy);font-weight:700"></span> <span class="was" id="qvWas" style="color:var(--muted);text-decoration:line-through"></span></div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <span class="qty"><button onclick="qvQty(-1)">−</button><b id="qvN">1</b><button onclick="qvQty(1)">+</button></span>
+      <button class="btn navy" onclick="qvAdd()">🛒 Add to Cart</button>
+      <a class="btn" id="qvWa" target="_blank" style="background:#22b358">💬 Order on WhatsApp</a>
+    </div>
+  </div>
+</div></div>
 
-  <section class="block wrap">
-    <div class="sec-head"><div><h2>On Sale</h2><p>Limited-time prices — grab them before they go</p></div><a class="more" href="shop.html?sale=1">Shop all sale →</a></div>
-    <div class="grid" id="saleGrid"></div>
-  </section>
-
-  <section class="wrap"><div class="perks">
-    <div class="perk"><span class="ic">🚚</span><b>Fast Delivery</b><p>All over Pakistan, free on orders above Rs. 5,000.</p></div>
-    <div class="perk"><span class="ic">💵</span><b>Cash on Delivery</b><p>Pay at your doorstep — Easypaisa, JazzCash and cards also accepted.</p></div>
-    <div class="perk"><span class="ic">✔️</span><b>Original Products</b><p>Every item is checked before dispatch.</p></div>
-    <div class="perk"><span class="ic">↩️</span><b>Easy Support</b><p>Size or product issue? Message us on WhatsApp anytime.</p></div>
-  </div></section>
-
-  <section class="wrap"><div class="wa-strip">
-    <div><h3 id="stripTitle"></h3><p id="stripText"></p></div>
-    <a class="btn" target="_blank" href="https://wa.me/923349001195?text=Assalam%20o%20Alaikum!%20I%20want%20to%20place%20an%20order.">Chat on WhatsApp</a>
-  </div></section>
-</main>
 <script src="data/products.js"></script>
 <script src="assets/store.js"></script>
 <script>
-mount("index.html");
-const P = catalog();
-document.getElementById("heroKicker").textContent = settings.heroKicker;
-document.getElementById("heroTitle").innerHTML = settings.heroTitle;
-document.getElementById("heroText").textContent = settings.heroText;
-if (settings.heroImg) document.getElementById("heroImg").src = settings.heroImg;
-document.getElementById("stripTitle").textContent = settings.stripTitle;
-document.getElementById("stripText").textContent = settings.stripText;
-document.getElementById("statProducts").textContent = P.length + "+";
-
-const catMap = {};
-P.forEach(p => { if (p.category) { catMap[p.category] = catMap[p.category] || { n: 0, img: p.img }; catMap[p.category].n++; } });
-document.getElementById("catTiles").innerHTML = Object.keys(catMap).map(c =>
-  `<a class="cat-tile" href="shop.html?cat=${encodeURIComponent(c)}"><img loading="lazy" src="${esc(catMap[c].img)}" alt="${esc(c)}"><span class="lbl"><b>${esc(c)}</b><span>${catMap[c].n} products</span></span></a>`).join("");
-
-const best = P.filter(p => p.available !== false).slice(0, 12);
-document.getElementById("bestTrack").innerHTML = best.map(cardHTML).join("");
-let slIdx = 0, slTimer = null;
-function perView() { return innerWidth <= 760 ? 2 : innerWidth <= 1020 ? 3 : 4; }
-function slideRender() {
-  const track = document.getElementById("bestTrack");
-  const pages = Math.ceil(best.length / perView());
-  slIdx = Math.max(0, Math.min(slIdx, pages - 1));
-  track.style.transform = `translateX(-${slIdx * 100}%)`;
-  document.getElementById("bestDots").innerHTML = Array.from({ length: pages }, (_, i) => `<i class="${i === slIdx ? "on" : ""}" onclick="slideGo(${i})"></i>`).join("");
+const P = BM.products();
+const S = BM.settings();
+/* category nav */
+(function(){
+  const counts={}; P.forEach(p=>counts[p.c]=(counts[p.c]||0)+1);
+  const cats=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]);
+  document.getElementById('catnav').innerHTML =
+    `<a href="shop.html" class="active">All Products</a>` + cats.slice(0,10).map(c=>`<a href="shop.html?cat=${encodeURIComponent(c)}">${c}</a>`).join('');
+  document.getElementById('foot-cats').innerHTML = cats.slice(0,6).map(c=>`<a href="shop.html?cat=${encodeURIComponent(c)}">${c}</a>`).join('');
+  const icons={"Air Conditioners":"❄️","Refrigerators":"🧊","LED TVs":"📺","Washing Machines":"🌀","Kitchen Appliances":"🍳","Geysers":"🔥","Microwave Ovens":"♨️","Air Coolers":"🌬️","Freezers":"❄️","Kitchen Hoods":"🏠","Air Fryers":"🍟","Cooking Ranges":"🔥","Home Appliances":"🔌","Ovens & Toasters":"🍞","Hobs & Stoves":"🍲","Heaters":"☀️","Fans":"🌀","Vacuum Cleaners":"🧹","Water Dispensers":"💧","Dishwashers":"🍽️","Sewing Machines":"🧵","Generators":"⚡","Solar Products":"🔋"};
+  document.getElementById('tiles').innerHTML = cats.slice(0,12).map(c=>`<a class="tile" href="shop.html?cat=${encodeURIComponent(c)}"><div class="ic">${icons[c]||'🔌'}</div><h3>${c}</h3><p>${counts[c]} products</p></a>`).join('');
+  const bc={}; P.forEach(p=>bc[p.b]=(bc[p.b]||0)+1);
+  document.getElementById('brands').innerHTML = Object.keys(bc).sort((a,b)=>bc[b]-bc[a]).slice(0,14).map(b=>`<a href="shop.html?brand=${encodeURIComponent(b)}">${b} (${bc[b]})</a>`).join('');
+})();
+/* cards */
+function cardHTML(p){
+  const off = p.compare>p.price ? Math.round((1-p.price/p.compare)*100) : 0;
+  return `<article class="pcard"><div class="ph" onclick="qv(${p.id})"><img loading="lazy" src="${p.img}" alt="">${off?`<span class="sale">-${off}% OFF</span>`:''}<span class="brandtag">${p.b}</span></div>
+  <div class="info"><span class="cat">${p.c}</span><h3 onclick="qv(${p.id})">${p.n}</h3>
+  <div class="prices">${p.price?`<span class="now">${BM.money(p.price)}</span>${p.compare?`<span class="was">${BM.money(p.compare)}</span>`:''}`:`<span class="now">Price on Request</span>`}</div>
+  <div class="acts"><button class="addbtn" onclick="BM.addToCart(${p.id})">Add to Cart</button><a class="wabtn" target="_blank" href="https://wa.me/${S.wa}?text=${encodeURIComponent('Hello Bin Mahmood Electronic, I am interested in: '+p.n)}">💬</a></div></div></article>`;
 }
-function slideGo(i) { slIdx = i; slideRender(); slideAuto(); }
-function slideMove(d) { const pages = Math.ceil(best.length / perView()); slIdx = (slIdx + d + pages) % pages; slideRender(); slideAuto(); }
-function slideAuto() { clearInterval(slTimer); slTimer = setInterval(() => slideMove(1), 4500); }
-addEventListener("resize", slideRender);
-document.querySelector(".slider").addEventListener("mouseenter", () => clearInterval(slTimer));
-document.querySelector(".slider").addEventListener("mouseleave", slideAuto);
-slideRender(); slideAuto();
-
-const sale = P.filter(p => disc(p) > 0).sort((a, b) => disc(b) - disc(a)).slice(0, 8);
-document.getElementById("saleGrid").innerHTML = sale.map(cardHTML).join("");
+document.getElementById('deals').innerHTML = P.filter(p=>p.compare>p.price).sort((a,b)=>(1-b.price/b.compare)-(1-a.price/a.compare)).slice(0,14).map(cardHTML).join('');
+const fill=(id,cat)=>{ document.getElementById(id).innerHTML = P.filter(p=>p.c===cat).slice(0,8).map(cardHTML).join(''); };
+fill('sec-ac','Air Conditioners'); fill('sec-fridge','Refrigerators'); fill('sec-tv','LED TVs');
+/* hero slider — fit to screen */
+const HSLIDES=[
+ {img:"https://www.aysonline.pk/wp-content/uploads/2026/08/yoast-banner.jpg",t:"Pakistan's Trusted Electronics Store",s:"Since 1956 · 17 showrooms in Peshawar · Free delivery across Pakistan",link:"shop.html"},
+ {img:"https://www.aysonline.pk/wp-content/uploads/2026/07/deep-freezer-banner-1080.jpg",t:"Deep Freezers",s:"Waves, Dawlance, Haier & more — official warranty",link:"shop.html?cat=Freezers"},
+ {img:"https://www.aysonline.pk/wp-content/uploads/2026/07/washing-machine-banner-1080x1080-1.jpg",t:"Washing Machines",s:"Automatic & semi-automatic — all top brands",link:"shop.html?cat=Washing Machines"},
+ {img:"https://www.aysonline.pk/wp-content/uploads/2026/07/led-tv-banner-1080x1080-1.jpg",t:"LED & Smart TVs",s:"TCL, Samsung, Haier — 4K brilliance for every home",link:"shop.html?cat=LED TVs"},
+ {img:"https://www.aysonline.pk/wp-content/uploads/2026/07/rool-cooler-banner-1080x1080-1.jpg",t:"Air Coolers",s:"Beat the heat — Super Asia, Kenwood & more",link:"shop.html?cat=Air Coolers"}
+];
+let hi=0, hT=null;
+const hw=document.getElementById('heroSlides'), hd=document.getElementById('hdots');
+hw.innerHTML = HSLIDES.map((s,i)=>`<div class="hslide${i===0?' on':''}"><img src="${s.img}" alt=""><div class="cap"><b>${s.t}</b><span>${s.s}</span><div style="margin-top:12px"><a class="btn sm" href="${s.link}">Shop Now</a></div></div></div>`).join('');
+hd.innerHTML = HSLIDES.map((_,i)=>`<button class="${i===0?'on':''}" onclick="hGo(${i})"></button>`).join('');
+function hShow(){ hw.querySelectorAll('.hslide').forEach((e,i)=>e.classList.toggle('on',i===hi)); hd.querySelectorAll('button').forEach((e,i)=>e.classList.toggle('on',i===hi)); }
+function hGo(i){ hi=(i+HSLIDES.length)%HSLIDES.length; hShow(); hAuto(); }
+function hMove(d){ hGo(hi+d); }
+function hAuto(){ clearInterval(hT); hT=setInterval(()=>{ hi=(hi+1)%HSLIDES.length; hShow(); },5500); }
+hAuto();
+/* quick view */
+let qvP=null, qvN=1;
+function qv(id){ qvP=P.find(p=>p.id===id); if(!qvP) return; qvN=1; document.getElementById('qvN').textContent=1;
+  document.getElementById('qvImg').src=qvP.img; document.getElementById('qvCat').textContent=qvP.c;
+  document.getElementById('qvName').textContent=qvP.n; document.getElementById('qvBrand').textContent=qvP.b;
+  document.getElementById('qvPrice').textContent = qvP.price?BM.money(qvP.price):'Price on Request';
+  document.getElementById('qvWas').textContent = qvP.compare?BM.money(qvP.compare):'';
+  document.getElementById('qvWa').href=`https://wa.me/${S.wa}?text=${encodeURIComponent('Hello Bin Mahmood Electronic, I want to order: '+qvP.n)}`;
+  document.getElementById('qvModal').classList.add('open'); }
+function closeQV(){ document.getElementById('qvModal').classList.remove('open'); }
+function qvQty(d){ qvN=Math.max(1,qvN+d); document.getElementById('qvN').textContent=qvN; }
+function qvAdd(){ if(qvP){ BM.addToCart(qvP.id,qvN); closeQV(); } }
+document.getElementById('qvModal').addEventListener('click',e=>{ if(e.target.id==='qvModal') closeQV(); });
 </script>
 </body>
 </html>

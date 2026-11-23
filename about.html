@@ -3,33 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About — Bin Mahmood Electronic</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<title>About Us — Bin Mahmood Electronic</title>
+<link rel="icon" href="assets/logo.svg">
+<link rel="stylesheet" href="style.css">
+<style>
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:8px 0 4px}
+@media(max-width:860px){.stats{grid-template-columns:1fr 1fr}}
+.stat{background:var(--navy);color:#fff;border-radius:var(--r);padding:24px 18px;text-align:center}
+.stat b{display:block;font-size:31px}
+.stat span{color:#c9cbf0;font-size:13px}
+.prose{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px}
+.prose h2{font-size:22px;margin:20px 0 8px}
+.prose h2:first-child{margin-top:0}
+.prose p{color:#3c4055;margin-bottom:10px}
+</style>
 </head>
 <body>
-<main class="wrap">
-  <div class="page-head"><h1>About Bin Mahmood Electronic</h1><p>Serving customers with trust since 1956.</p></div>
-  <div class="hero-img" style="margin-top:26px"><img src="https://www.aysonline.pk/wp-content/uploads/2026/08/yoast-banner.jpg" alt="Bin Mahmood Electronic"></div>
-  <div class="prose">
-    <p><b>Bin Mahmood Electronic</b> carries a legacy that began in <b>1956</b>. What started as a single trusted electronics shop has grown into a network of <b>17 showrooms in Peshawar</b> and one of Pakistan's most loved online electronics stores — serving families across the country for three generations.</p>
-    <h3>100% original, with official warranty</h3>
-    <p>Every product we sell — LED TVs, refrigerators, air conditioners, washing machines, kitchen appliances and much more — is 100% original and covered by the official manufacturer warranty, valid across Pakistan. No copies, no compromises.</p>
-    <h3>Best prices, honest advice</h3>
-    <p>We work directly with Pakistan's leading brands — Samsung, LG, Haier, Dawlance, PEL, Gree, Kenwood and many more — so you get genuine products at the best possible prices, with easy installment options and free delivery across Pakistan.</p>
-    <h3>Visit or message us</h3>
-    <p>Visit any of our 17 showrooms in Peshawar, or message us on WhatsApp at <b>+92 334 900 1195</b> — our team will guide you to the right product for your home and budget.</p>
+
+<div class="topbar"><div class="wrap">
+  <span>Pakistan's Trusted Electronics Store — <b>Since 1956</b> · 17 Showrooms in Peshawar</span>
+  <span>📞 <b>+92 334 900 1195</b> &nbsp;·&nbsp; ✉️ weavers2025ai@gmail.com &nbsp;·&nbsp; Free Delivery Across Pakistan</span>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <div class="head-in">
+    <a class="logo" href="index.html"><img src="assets/logo.svg" alt="Bin Mahmood Electronic"><span class="lt"><b>BIN MAHMOOD</b><span>ELECTRONIC</span></span></a>
+    <form class="search" action="shop.html" method="get"><input name="q" placeholder="Search for products, brands and categories…"><button type="submit">Search</button></form>
+    <div class="hotline"><small>Call / WhatsApp</small><b>+92 334 900 1195</b></div>
+    <div class="hicons">
+      <a class="nicon" href="account.html" title="My Account">👤</a>
+      <a class="nicon" href="checkout.html" title="Cart">🛒<span class="cartCount">0</span></a>
+    </div>
   </div>
-  <section><div class="perks">
-    <div class="perk"><span class="ic">🏆</span><b>Since 1956</b><p>Three generations of customer trust.</p></div>
-    <div class="perk"><span class="ic">🏬</span><b>17 Showrooms</b><p>All across Peshawar — visit us in person.</p></div>
-    <div class="perk"><span class="ic">✔️</span><b>Official Warranty</b><p>Manufacturer warranty valid across Pakistan.</p></div>
-    <div class="perk"><span class="ic">💳</span><b>Easy Installments</b><p>Flexible payment plans on major appliances.</p></div>
-  </div></section>
-</main>
+</div>
+<nav class="catbar"><div class="wrap" id="catnav"></div></nav>
+</header>
+
+<div class="wrap">
+  <div class="pagehero"><div class="eyebrow">About Us</div><h1>Bin Mahmood Electronic</h1><p>Pakistan's trusted electronics store since 1956 — now online, with the same promise: 100% original products with official manufacturer warranty.</p></div>
+  <div class="stats">
+    <div class="stat"><b>1956</b><span>Serving since</span></div>
+    <div class="stat"><b>17</b><span>Showrooms in Peshawar</span></div>
+    <div class="stat"><b>2,100+</b><span>Products online</span></div>
+    <div class="stat"><b>100%</b><span>Original &amp; warranted</span></div>
+  </div>
+  <section class="sec" style="padding-top:26px">
+    <div class="prose">
+      <h2>Our Story</h2>
+      <p>For nearly seventy years, our family business has supplied homes across Pakistan with genuine electronics and home appliances. What began as a single shop in Peshawar in 1956 has grown into 17 showrooms — and now this online store, so every Pakistani home can shop the same trusted range from anywhere.</p>
+      <h2>What We Sell</h2>
+      <p>Air conditioners, refrigerators, LED TVs, washing machines, freezers, geysers, air coolers, kitchen appliances and much more — from the brands Pakistan trusts: Haier, Dawlance, Samsung, TCL, LG, Kenwood, Super Asia, Gree, Orient, EcoStar and many others.</p>
+      <h2>Our Promise</h2>
+      <p>Every product we sell is 100% original and covered by the official manufacturer warranty. We offer free delivery across Pakistan, honest prices, easy payment options — cash on delivery, Easypaisa, JazzCash and bank transfer — and friendly after-sales support on call and WhatsApp.</p>
+      <p style="margin-top:16px"><a class="btn navy" href="shop.html">Shop All Products</a> &nbsp; <a class="btn ghost" href="contact.html">Contact Us</a></p>
+    </div>
+  </section>
+</div>
+
+<footer><div class="wrap">
+  <div class="foot-in">
+    <div><a class="logo" href="index.html" style="margin-bottom:14px"><img src="assets/logo.svg" alt="Bin Mahmood Electronic"><span class="lt"><b>BIN MAHMOOD</b><span>ELECTRONIC</span></span></a><p>Best online electronics store in Pakistan since 1956. 100% original products with official manufacturer warranty.</p></div>
+    <div><h4>Shop</h4><div id="foot-cats"></div></div>
+    <div><h4>Customer Care</h4><a href="shop.html">All Products</a><a href="checkout.html">Cart &amp; Checkout</a><a href="account.html">My Account</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a></div>
+    <div><h4>Get in Touch</h4><p>📞 Call / WhatsApp: +92 334 900 1195</p><p>✉️ weavers2025ai@gmail.com</p><p>📍 17 Showrooms — Peshawar, Pakistan</p></div>
+  </div>
+  <div class="foot-bar"><span>© 2026 Bin Mahmood Electronic. All rights reserved.</span><span>COD · Easypaisa · JazzCash · Bank Transfer</span></div>
+</div></footer>
+
 <script src="data/products.js"></script>
 <script src="assets/store.js"></script>
-<script>mount("about.html");</script>
+<script>
+const P = BM.products();
+(function(){ const counts={}; P.forEach(p=>counts[p.c]=(counts[p.c]||0)+1); const cats=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]);
+  document.getElementById('catnav').innerHTML = `<a href="shop.html">All Products</a>` + cats.slice(0,10).map(c=>`<a href="shop.html?cat=${encodeURIComponent(c)}">${c}</a>`).join('');
+  document.getElementById('foot-cats').innerHTML = cats.slice(0,6).map(c=>`<a href="shop.html?cat=${encodeURIComponent(c)}">${c}</a>`).join(''); })();
+</script>
 </body>
 </html>

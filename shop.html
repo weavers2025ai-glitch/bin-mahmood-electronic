@@ -4,97 +4,158 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shop — Bin Mahmood Electronic</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="assets/logo.svg">
+<link rel="stylesheet" href="style.css">
+<style>
+.shop{display:grid;grid-template-columns:250px 1fr;gap:22px;align-items:start}
+@media(max-width:860px){.shop{grid-template-columns:1fr}}
+.side{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px;position:sticky;top:120px}
+@media(max-width:860px){.side{position:static}}
+.side h4{font-size:14px;margin:16px 0 9px;text-transform:uppercase;letter-spacing:.6px}
+.side h4:first-child{margin-top:0}
+.side a{display:block;padding:5px 9px;border-radius:8px;font-size:13.8px;color:var(--ink)}
+.side a:hover{background:var(--bg)}
+.side a.on{background:var(--navy);color:#fff;font-weight:600}
+.side a span{color:var(--muted);font-size:12px}
+.side a.on span{color:#cfd2ff}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.toolbar .grow{flex:1;min-width:190px}
+.toolbar input,.toolbar select{padding:11px 14px;border:1.5px solid #ccd0e4;border-radius:99px;font-family:inherit;font-size:14px;background:#fff;width:100%}
+.toolbar select{width:auto}
+.count{color:var(--muted);font-size:13.5px}
+</style>
 </head>
 <body>
-<main class="wrap">
-  <div class="page-head"><h1>Shop All Products</h1><p>Original products, honest prices — delivered across Pakistan.</p></div>
-  <div class="shop-layout">
-    <aside class="filters">
-      <h4>Category</h4><div id="fCats"></div>
-      <h4>Brand</h4><div id="fBrands"></div>
-      <div id="sizeBlock"><h4>Size (EU)</h4><div id="fSizes"></div></div>
-      <h4>Availability</h4>
-      <label><input type="checkbox" id="fStock"> In stock only</label>
-      <label><input type="checkbox" id="fSale"> On sale only</label>
-      <button class="btn ghost" style="margin-top:16px;width:100%;justify-content:center" onclick="clearFilters()">Clear all filters</button>
+
+<div class="topbar"><div class="wrap">
+  <span>Pakistan's Trusted Electronics Store — <b>Since 1956</b> · 17 Showrooms in Peshawar</span>
+  <span>📞 <b>+92 334 900 1195</b> &nbsp;·&nbsp; ✉️ weavers2025ai@gmail.com &nbsp;·&nbsp; Free Delivery Across Pakistan</span>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <div class="head-in">
+    <a class="logo" href="index.html"><img src="assets/logo.svg" alt="Bin Mahmood Electronic"><span class="lt"><b>BIN MAHMOOD</b><span>ELECTRONIC</span></span></a>
+    <form class="search" action="shop.html" method="get"><input name="q" id="hq" placeholder="Search for products, brands and categories…"><button type="submit">Search</button></form>
+    <div class="hotline"><small>Call / WhatsApp</small><b>+92 334 900 1195</b></div>
+    <div class="hicons">
+      <a class="nicon" href="account.html" title="My Account">👤</a>
+      <a class="nicon" href="checkout.html" title="Cart">🛒<span class="cartCount">0</span></a>
+    </div>
+  </div>
+</div>
+<nav class="catbar"><div class="wrap" id="catnav"></div></nav>
+</header>
+
+<div class="wrap">
+  <div class="pagehero"><div class="eyebrow">Shop</div><h1 id="shopTitle">All Products</h1><p>100% original products with official manufacturer warranty — free delivery across Pakistan.</p></div>
+  <div class="shop" style="padding-bottom:10px">
+    <aside class="side">
+      <h4>Categories</h4><div id="sideCats"></div>
+      <h4>Brands</h4><div id="sideBrands" style="max-height:300px;overflow:auto"></div>
+      <h4>Price</h4>
+      <a href="#" data-price="0" class="pf on">All prices</a>
+      <a href="#" data-price="25000" class="pf">Under Rs. 25,000</a>
+      <a href="#" data-price="50000" class="pf">Under Rs. 50,000</a>
+      <a href="#" data-price="100000" class="pf">Under Rs. 100,000</a>
+      <a href="#" data-price="200000" class="pf">Under Rs. 200,000</a>
     </aside>
     <div>
       <div class="toolbar">
-        <input type="search" id="q" placeholder="Search products…">
+        <div class="grow"><input id="q" placeholder="Search in results…"></div>
+        <select id="sort"><option value="pop">Sort: Popular</option><option value="sale">Biggest Discount</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option><option value="az">Name: A–Z</option></select>
         <span class="count" id="count"></span>
-        <select id="sort" aria-label="Sort">
-          <option value="feat">Sort: Featured</option>
-          <option value="low">Price: Low to High</option>
-          <option value="high">Price: High to Low</option>
-          <option value="disc">Biggest Discount</option>
-          <option value="az">Name: A to Z</option>
-        </select>
       </div>
-      <div class="grid" id="grid" style="grid-template-columns:repeat(3,1fr)"></div>
-      <div style="text-align:center;margin-top:22px"><button class="btn ghost" id="loadMore" style="display:none" onclick="more()">Load More Products</button></div>
-      <div class="empty" id="empty" style="display:none">No products match your filters.<br><button class="btn" style="margin-top:14px" onclick="clearFilters()">Clear filters</button></div>
+      <div class="pgrid" id="grid" style="grid-template-columns:repeat(3,1fr)"></div>
+      <div style="text-align:center;padding:26px 0"><button class="btn navy" id="more" onclick="more()">Load More Products</button></div>
     </div>
   </div>
-</main>
+</div>
+
+<footer><div class="wrap">
+  <div class="foot-in">
+    <div><a class="logo" href="index.html" style="margin-bottom:14px"><img src="assets/logo.svg" alt="Bin Mahmood Electronic"><span class="lt"><b>BIN MAHMOOD</b><span>ELECTRONIC</span></span></a><p>Best online electronics store in Pakistan since 1956. 100% original products with official manufacturer warranty.</p></div>
+    <div><h4>Shop</h4><div id="foot-cats"></div></div>
+    <div><h4>Customer Care</h4><a href="shop.html">All Products</a><a href="checkout.html">Cart &amp; Checkout</a><a href="account.html">My Account</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a></div>
+    <div><h4>Get in Touch</h4><p>📞 Call / WhatsApp: +92 334 900 1195</p><p>✉️ weavers2025ai@gmail.com</p><p>📍 17 Showrooms — Peshawar, Pakistan</p></div>
+  </div>
+  <div class="foot-bar"><span>© 2026 Bin Mahmood Electronic. All rights reserved.</span><span>COD · Easypaisa · JazzCash · Bank Transfer</span></div>
+</div></footer>
+
+<div class="modal" id="qvModal"><div class="modal-card">
+  <div class="mi"><img id="qvImg" alt=""></div>
+  <div class="md">
+    <div style="display:flex;justify-content:space-between;align-items:start"><span id="qvCat" style="color:var(--blue);font-size:11.5px;font-weight:600;letter-spacing:.6px;text-transform:uppercase"></span><button onclick="closeQV()" style="border:0;background:none;font-size:21px;cursor:pointer;color:var(--muted)">✕</button></div>
+    <h3 id="qvName" style="font-size:20px;color:var(--ink);margin:6px 0 4px"></h3>
+    <p style="color:var(--muted);font-size:13px">Brand: <b id="qvBrand"></b> · 100% original · Official warranty</p>
+    <div style="margin:14px 0"><span id="qvPrice" style="font-size:22px;color:var(--navy);font-weight:700"></span> <span id="qvWas" style="color:var(--muted);text-decoration:line-through"></span></div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <span class="qty"><button onclick="qvQty(-1)">−</button><b id="qvN">1</b><button onclick="qvQty(1)">+</button></span>
+      <button class="btn navy" onclick="qvAdd()">🛒 Add to Cart</button>
+      <a class="btn" id="qvWa" target="_blank" style="background:#22b358">💬 Order on WhatsApp</a>
+    </div>
+  </div>
+</div></div>
+
 <script src="data/products.js"></script>
 <script src="assets/store.js"></script>
 <script>
-mount("shop.html");
-const P = catalog();
+const P = BM.products(); const S = BM.settings();
 const params = new URLSearchParams(location.search);
-const state = { cats: new Set(), brands: new Set(), sizes: new Set(), stock: params.get("sale") ? false : false, sale: params.get("sale") === "1", q: params.get("q") || "", sort: "feat" };
-if (params.get("cat")) state.cats.add(params.get("cat"));
-function uniq(key) { return [...new Set(P.map(p => p[key]).filter(Boolean))].sort(); }
-function buildFilters() {
-  document.getElementById("fCats").innerHTML = uniq("category").map(c => {
-    const n = P.filter(p => p.category === c).length;
-    return `<label><input type="checkbox" ${state.cats.has(c) ? "checked" : ""} onchange="toggleSet(state.cats,'${esc(c)}',this.checked)"> ${esc(c)} <span style="color:var(--muted)">(${n})</span></label>`;
-  }).join("");
-  document.getElementById("fBrands").innerHTML = uniq("brand").map(b =>
-    `<label><input type="checkbox" onchange="toggleSet(state.brands,'${esc(b)}',this.checked)"> ${esc(b)} <span style="color:var(--muted)">(${P.filter(p => p.brand === b).length})</span></label>`).join("");
-  const sizes = [...new Set(P.flatMap(p => p.sizes || []))].sort();
-  document.getElementById("fSizes").innerHTML = sizes.map(s =>
-    `<label><input type="checkbox" onchange="toggleSet(state.sizes,'${s}',this.checked)"> EU ${s}</label>`).join("");
-  document.getElementById("fSale").checked = state.sale;
-  document.getElementById("q").value = state.q;
+let curCat = params.get('cat')||'', curBrand = params.get('brand')||'', curPrice = 0, curQ = params.get('q')||'', shown = 0;
+const PAGE = 48;
+document.getElementById('q').value = curQ; document.getElementById('hq').value = curQ;
+const counts={}; P.forEach(p=>counts[p.c]=(counts[p.c]||0)+1);
+const cats=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]);
+document.getElementById('catnav').innerHTML = `<a href="shop.html">All Products</a>` + cats.slice(0,10).map(c=>`<a href="shop.html?cat=${encodeURIComponent(c)}" class="${c===curCat?'active':''}">${c}</a>`).join('');
+document.getElementById('foot-cats').innerHTML = cats.slice(0,6).map(c=>`<a href="shop.html?cat=${encodeURIComponent(c)}">${c}</a>`).join('');
+document.getElementById('sideCats').innerHTML = `<a href="#" data-cat="" class="${!curCat?'on':''}">All Products <span>(${P.length})</span></a>` + cats.map(c=>`<a href="#" data-cat="${c}" class="${c===curCat?'on':''}">${c} <span>(${counts[c]})</span></a>`).join('');
+const bc={}; P.forEach(p=>bc[p.b]=(bc[p.b]||0)+1);
+document.getElementById('sideBrands').innerHTML = `<a href="#" data-brand="" class="${!curBrand?'on':''}">All Brands</a>` + Object.keys(bc).sort((a,b)=>bc[b]-bc[a]).slice(0,40).map(b=>`<a href="#" data-brand="${b}" class="${b===curBrand?'on':''}">${b} <span>(${bc[b]})</span></a>`).join('');
+function cardHTML(p){
+  const off = p.compare>p.price ? Math.round((1-p.price/p.compare)*100) : 0;
+  return `<article class="pcard"><div class="ph" onclick="qv(${p.id})"><img loading="lazy" src="${p.img}" alt="">${off?`<span class="sale">-${off}% OFF</span>`:''}<span class="brandtag">${p.b}</span></div>
+  <div class="info"><span class="cat">${p.c}</span><h3 onclick="qv(${p.id})">${p.n}</h3>
+  <div class="prices">${p.price?`<span class="now">${BM.money(p.price)}</span>${p.compare?`<span class="was">${BM.money(p.compare)}</span>`:''}`:`<span class="now">Price on Request</span>`}</div>
+  <div class="acts"><button class="addbtn" onclick="BM.addToCart(${p.id})">Add to Cart</button><a class="wabtn" target="_blank" href="https://wa.me/${S.wa}?text=${encodeURIComponent('Hello Bin Mahmood Electronic, I am interested in: '+p.n)}">💬</a></div></div></article>`;
 }
-function toggleSet(set, v, on) { on ? set.add(isNaN(v) ? v : v) : set.delete(v); render(); }
-function clearFilters() { state.cats.clear(); state.brands.clear(); state.sizes.clear(); state.sale = false; state.stock = false; state.q = ""; buildFilters(); document.getElementById("fStock").checked = false; render(); }
-document.getElementById("fStock").addEventListener("change", e => { state.stock = e.target.checked; render(); });
-document.getElementById("fSale").addEventListener("change", e => { state.sale = e.target.checked; render(); });
-document.getElementById("q").addEventListener("input", e => { state.q = e.target.value.toLowerCase(); render(); });
-document.getElementById("sort").addEventListener("change", e => { state.sort = e.target.value; render(); });
-let shown = 60, currentList = [];
-function more() { shown += 60; paint(); }
-function paint() {
-  document.getElementById("grid").innerHTML = currentList.slice(0, shown).map(cardHTML).join("");
-  document.getElementById("count").textContent = currentList.length + " products";
-  document.getElementById("empty").style.display = currentList.length ? "none" : "block";
-  document.getElementById("loadMore").style.display = currentList.length > shown ? "inline-flex" : "none";
+function filtered(){
+  let list = P.filter(p => (!curCat||p.c===curCat) && (!curBrand||p.b===curBrand) && (!curPrice||(p.price&&p.price<=curPrice)) && (!curQ||(p.n+' '+p.b+' '+p.c).toLowerCase().includes(curQ.toLowerCase())));
+  const s = document.getElementById('sort').value;
+  if(s==='low') list.sort((a,b)=>(a.price||1e12)-(b.price||1e12));
+  if(s==='high') list.sort((a,b)=>(b.price||0)-(a.price||0));
+  if(s==='az') list.sort((a,b)=>a.n.localeCompare(b.n));
+  if(s==='sale') list.sort((a,b)=>((1-(b.price/(b.compare||b.price||1))))-((1-(a.price/(a.compare||a.price||1)))));
+  return list;
 }
-function render() {
-  shown = 60;
-  let list = P.filter(p =>
-    (!state.cats.size || state.cats.has(p.category)) &&
-    (!state.brands.size || state.brands.has(p.brand)) &&
-    (!state.sizes.size || (p.sizes || []).some(s => state.sizes.has(String(s)))) &&
-    (!state.stock || p.available !== false) &&
-    (!state.sale || disc(p) > 0) &&
-    (!state.q || (p.name + " " + (p.brand || "") + " " + (p.category || "")).toLowerCase().includes(state.q))
-  );
-  if (state.sort === "low") list.sort((a, b) => a.price - b.price);
-  if (state.sort === "high") list.sort((a, b) => b.price - a.price);
-  if (state.sort === "disc") list.sort((a, b) => disc(b) - disc(a));
-  if (state.sort === "az") list.sort((a, b) => a.name.localeCompare(b.name));
-  currentList = list; paint();
+function render(reset){
+  if(reset) shown = 0;
+  const list = filtered();
+  shown = Math.min(list.length, shown + PAGE);
+  document.getElementById('grid').innerHTML = list.slice(0,shown).map(cardHTML).join('') || `<p style="color:var(--muted);grid-column:1/-1;padding:30px 0">No products found. Try another search or category.</p>`;
+  document.getElementById('count').textContent = `Showing ${shown} of ${list.length} products`;
+  document.getElementById('more').style.display = shown<list.length ? 'inline-flex' : 'none';
+  document.getElementById('shopTitle').textContent = curCat || (curBrand? curBrand+' Products' : (curQ? 'Results for "'+curQ+'"' : 'All Products'));
 }
-buildFilters();
-if (!P.some(p => (p.sizes || []).length)) document.getElementById("sizeBlock").style.display = "none";
-render();
+function more(){ render(false); }
+document.getElementById('sort').addEventListener('change',()=>render(true));
+let qt; document.getElementById('q').addEventListener('input',e=>{ clearTimeout(qt); qt=setTimeout(()=>{ curQ=e.target.value.trim(); render(true); },250); });
+document.getElementById('sideCats').addEventListener('click',e=>{ const a=e.target.closest('a'); if(!a) return; e.preventDefault(); curCat=a.dataset.cat; document.querySelectorAll('#sideCats a').forEach(x=>x.classList.toggle('on',x===a)); render(true); });
+document.getElementById('sideBrands').addEventListener('click',e=>{ const a=e.target.closest('a'); if(!a) return; e.preventDefault(); curBrand=a.dataset.brand; document.querySelectorAll('#sideBrands a').forEach(x=>x.classList.toggle('on',x===a)); render(true); });
+document.querySelectorAll('.pf').forEach(a=>a.addEventListener('click',e=>{ e.preventDefault(); curPrice=+a.dataset.price; document.querySelectorAll('.pf').forEach(x=>x.classList.toggle('on',x===a)); render(true); }));
+if(params.get('sort')==='sale') document.getElementById('sort').value='sale';
+render(true);
+let qvP=null, qvN=1;
+function qv(id){ qvP=P.find(p=>p.id===id); if(!qvP) return; qvN=1; document.getElementById('qvN').textContent=1;
+  document.getElementById('qvImg').src=qvP.img; document.getElementById('qvCat').textContent=qvP.c;
+  document.getElementById('qvName').textContent=qvP.n; document.getElementById('qvBrand').textContent=qvP.b;
+  document.getElementById('qvPrice').textContent = qvP.price?BM.money(qvP.price):'Price on Request';
+  document.getElementById('qvWas').textContent = qvP.compare?BM.money(qvP.compare):'';
+  document.getElementById('qvWa').href=`https://wa.me/${S.wa}?text=${encodeURIComponent('Hello Bin Mahmood Electronic, I want to order: '+qvP.n)}`;
+  document.getElementById('qvModal').classList.add('open'); }
+function closeQV(){ document.getElementById('qvModal').classList.remove('open'); }
+function qvQty(d){ qvN=Math.max(1,qvN+d); document.getElementById('qvN').textContent=qvN; }
+function qvAdd(){ if(qvP){ BM.addToCart(qvP.id,qvN); closeQV(); } }
+document.getElementById('qvModal').addEventListener('click',e=>{ if(e.target.id==='qvModal') closeQV(); });
 </script>
-<style>@media(max-width:760px){#grid{grid-template-columns:repeat(2,1fr)!important}}</style>
 </body>
 </html>

@@ -1,0 +1,137 @@
+/* Bin Mahmood Electronic — AYS-style theme: navy #24246c, blue #4545c4, orange #ea5c20 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#24246c;--navy2:#1a1a52;--blue:#4545c4;--orange:#ea5c20;--ink:#1d2030;--muted:#686d82;--bg:#f4f5fa;--line:#e3e5ef;--r:14px}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;font-size:15px}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;color:var(--navy);line-height:1.2}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1280px;margin:0 auto;padding:0 20px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-weight:600;padding:12px 24px;border-radius:99px;font-size:14.5px;border:0;cursor:pointer;font-family:inherit;transition:.22s}
+.btn:hover{background:var(--navy)}
+.btn.navy{background:var(--navy)} .btn.navy:hover{background:var(--blue)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+.btn.ghost:hover{border-color:var(--navy)}
+.btn.sm{padding:9px 17px;font-size:13px}
+.eyebrow{letter-spacing:2.5px;font-size:11.5px;font-weight:700;color:var(--orange);text-transform:uppercase;margin-bottom:9px}
+/* topbar + header */
+.topbar{background:var(--navy2);color:#c9cbf0;font-size:12.5px}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:7px;padding-bottom:7px;flex-wrap:wrap}
+.topbar b{color:#fff}
+header.site{position:sticky;top:0;z-index:60;background:#fff;box-shadow:0 4px 24px rgba(29,32,48,.08)}
+.head-in{display:flex;align-items:center;gap:22px;padding-top:13px;padding-bottom:13px}
+.logo{display:flex;align-items:center;gap:11px}
+.logo img{height:46px;width:auto}
+.logo .lt b{display:block;font-size:19px;color:var(--navy);letter-spacing:.4px;line-height:1.05}
+.logo .lt span{font-size:11px;letter-spacing:3.5px;color:var(--orange);font-weight:700}
+.search{flex:1;display:flex;border:2px solid var(--navy);border-radius:99px;overflow:hidden;max-width:560px}
+.search input{flex:1;border:0;padding:11px 18px;font-family:inherit;font-size:14px;min-width:0;outline:none}
+.search button{background:var(--navy);color:#fff;border:0;padding:0 24px;font-weight:600;cursor:pointer;font-family:inherit}
+.hotline{text-align:right;line-height:1.25}
+.hotline small{color:var(--muted);font-size:11.5px;display:block}
+.hotline b{color:var(--navy);font-size:16.5px}
+.hicons{display:flex;gap:9px;align-items:center}
+.nicon{position:relative;width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:var(--bg);border:1px solid var(--line);font-size:17px}
+.cartCount{position:absolute;top:-4px;right:-4px;background:var(--orange);color:#fff;font-size:11px;font-weight:700;min-width:19px;height:19px;border-radius:99px;place-items:center;padding:0 5px;display:none}
+.catbar{background:var(--navy)}
+.catbar .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.catbar a{color:#dcdcf5;font-size:13.5px;font-weight:500;padding:11px 13px;white-space:nowrap}
+.catbar a:hover,.catbar a.active{color:#fff;background:rgba(255,255,255,.12)}
+.burger{display:none;background:var(--bg);border:1px solid var(--line);width:43px;height:43px;border-radius:12px;font-size:18px;cursor:pointer}
+@media(max-width:960px){.search{display:none}.hotline{display:none}.burger{display:block}}
+/* hero — always fits the screen */
+.hero{position:relative;border-radius:0;overflow:hidden;background:var(--navy2)}
+.hero .slides{position:relative;width:100%;aspect-ratio:21/8.2;max-height:500px;min-height:230px}
+.hslide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
+.hslide.on{opacity:1}
+.hslide img{width:100%;height:100%;object-fit:cover}
+.hslide .cap{position:absolute;left:0;bottom:0;right:0;background:linear-gradient(transparent,rgba(16,16,52,.82));color:#fff;padding:56px 34px 24px}
+.hslide .cap b{font-size:clamp(19px,3vw,32px);display:block}
+.hslide .cap span{color:#d8d8f5;font-size:14px}
+.harr{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--navy);font-size:20px;cursor:pointer;display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.harr.prev{left:14px}.harr.next{right:14px}
+.hdots{position:absolute;bottom:14px;right:22px;display:flex;gap:7px;z-index:5}
+.hdots button{width:9px;height:9px;border-radius:99px;border:0;background:rgba(255,255,255,.45);cursor:pointer;padding:0}
+.hdots button.on{background:var(--orange);width:26px}
+/* sections */
+.sec{padding:52px 0 8px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(23px,3vw,32px)}
+.sec-head p{color:var(--muted);font-size:14px;margin-top:5px}
+.viewall{color:var(--blue);font-weight:600;font-size:14px;white-space:nowrap}
+/* category tiles */
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}
+@media(max-width:1020px){.tiles{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.tiles{grid-template-columns:repeat(2,1fr)}}
+.tile{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:17px 15px;transition:.25s}
+.tile:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(36,36,108,.13);border-color:#c6c8ea}
+.tile .ic{font-size:27px;margin-bottom:8px}
+.tile h3{font-size:15px}
+.tile p{color:var(--muted);font-size:12.5px}
+/* product cards */
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+@media(max-width:1020px){.pgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:430px){.pgrid{grid-template-columns:1fr}}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(36,36,108,.14)}
+.pcard .ph{position:relative;background:#fff;display:grid;place-items:center;padding:14px 12px 6px;cursor:pointer}
+.pcard .ph img{height:168px;width:auto;max-width:100%;object-fit:contain}
+.sale{position:absolute;top:11px;left:11px;background:var(--orange);color:#fff;font-size:11px;font-weight:700;padding:4px 9px;border-radius:99px}
+.brandtag{position:absolute;top:11px;right:11px;background:var(--bg);border:1px solid var(--line);color:var(--muted);font-size:10.5px;font-weight:600;padding:3px 8px;border-radius:99px}
+.pcard .info{padding:11px 14px 15px;display:flex;flex-direction:column;flex:1}
+.pcard .cat{color:var(--blue);font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase}
+.pcard h3{font-size:13.8px;font-weight:600;color:var(--ink);margin:3px 0 8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:38px;cursor:pointer}
+.pcard h3:hover{color:var(--blue)}
+.prices{margin-top:auto}
+.prices .now{color:var(--navy);font-weight:700;font-size:16.5px}
+.prices .was{color:var(--muted);text-decoration:line-through;font-size:12.5px;margin-left:7px}
+.pcard .acts{display:flex;gap:7px;margin-top:11px}
+.addbtn{flex:1;background:var(--navy);color:#fff;border:0;border-radius:99px;padding:10px;font-weight:600;font-size:13px;cursor:pointer;font-family:inherit}
+.addbtn:hover{background:var(--orange)}
+.wabtn{width:40px;border-radius:99px;background:#e9f7ef;border:1.5px solid #bfe6cf;display:grid;place-items:center;font-size:16px}
+/* deals rail */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:262px;gap:15px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory}
+.rail .pcard{scroll-snap-align:start}
+@media(max-width:560px){.rail{grid-auto-columns:225px}}
+/* brands */
+.brands{display:flex;gap:10px;flex-wrap:wrap}
+.brands a{background:#fff;border:1px solid var(--line);border-radius:99px;padding:9px 19px;font-weight:600;font-size:14px;color:var(--navy)}
+.brands a:hover{border-color:var(--navy);background:var(--navy);color:#fff}
+/* perks */
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.perks{grid-template-columns:1fr 1fr}}
+.perk{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.perk .ic{font-size:25px;margin-bottom:8px}
+.perk h3{font-size:15.5px;margin-bottom:4px}
+.perk p{color:var(--muted);font-size:13px}
+/* footer */
+footer{background:var(--navy2);color:#c9cbf0;margin-top:64px}
+.foot-in{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;gap:28px;padding:50px 0 8px}
+@media(max-width:900px){.foot-in{grid-template-columns:1fr 1fr}}
+footer h4{color:#fff;font-size:15px;margin-bottom:13px}
+footer a{display:block;padding:4px 0;font-size:14px}
+footer a:hover{color:#ffb59d}
+footer p{font-size:14px;padding:3px 0}
+footer .logo .lt b{color:#fff}
+.foot-bar{border-top:1px solid rgba(255,255,255,.14);padding:16px 0 20px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:12.5px}
+/* page hero */
+.pagehero{padding:40px 0 6px}
+.pagehero h1{font-size:clamp(28px,4vw,42px)}
+.pagehero p{color:var(--muted);max-width:640px;margin-top:9px}
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(16,16,52,.55);backdrop-filter:blur(3px);display:none;place-items:center;z-index:200;padding:16px}
+.modal.open{display:grid}
+.modal-card{background:#fff;border-radius:20px;max-width:720px;width:100%;max-height:88vh;overflow:auto;display:grid;grid-template-columns:290px 1fr}
+.modal-card .mi{display:grid;place-items:center;padding:24px;background:#fbfbfe}
+.modal-card .mi img{max-height:290px;width:auto;max-width:100%;object-fit:contain}
+.modal-card .md{padding:26px}
+@media(max-width:680px){.modal-card{grid-template-columns:1fr}}
+.qty{display:inline-flex;align-items:center;gap:2px;border:1.5px solid var(--line);border-radius:99px;padding:3px}
+.qty button{width:28px;height:28px;border:0;border-radius:50%;background:var(--bg);font-size:15px;cursor:pointer;font-weight:700}
+.qty b{min-width:25px;text-align:center}
+/* forms */
+.fld{margin-bottom:12px}
+.fld label{display:block;font-size:12.5px;font-weight:600;margin-bottom:4px}
+.fld input,.fld textarea,.fld select{width:100%;padding:11px 13px;border:1.5px solid #ccd0e4;border-radius:11px;font-family:inherit;font-size:14px;background:#fff}

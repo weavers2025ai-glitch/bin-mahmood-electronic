@@ -3,50 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — Bin Mahmood Electronic</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<title>Contact Us — Bin Mahmood Electronic</title>
+<link rel="icon" href="assets/logo.svg">
+<link rel="stylesheet" href="style.css">
+<style>
+.cols{display:grid;grid-template-columns:1fr 1.2fr;gap:22px;align-items:start;padding-bottom:20px}
+@media(max-width:860px){.cols{grid-template-columns:1fr}}
+.panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.panel h2{font-size:20px;margin-bottom:14px}
+.crow2{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--line);align-items:center}
+.crow2:last-child{border-bottom:0}
+.crow2 .ic{width:46px;height:46px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-size:19px;flex:none}
+.crow2 b{color:var(--navy)}
+</style>
 </head>
 <body>
-<main class="wrap">
-  <div class="page-head"><h1>Contact Us</h1><p>We reply fast — usually within the hour during shop hours.</p></div>
-  <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:24px;padding:26px 0 60px;align-items:start" id="contactGrid">
-    <div class="form-card">
-      <h3>Store Details</h3>
-      <div class="summary-line"><span>🏪 Store</span><b>Bin Mahmood Electronic</b></div>
-      <div class="summary-line"><span>📍 Address</span><b style="text-align:right">Peshawar, Pakistan — 17 Showrooms</b></div>
-      <div class="summary-line"><span>💬 WhatsApp</span><b>+92 334 900 1195</b></div>
-      <div class="summary-line"><span>📞 Phone</span><b>+92 334 900 1195</b></div>
-      <div class="summary-line"><span>✉️ Email</span><b>weavers2025ai@gmail.com</b></div>
-      <div class="summary-line"><span>🕙 Hours</span><b>Mon – Sat, 10 AM – 9 PM</b></div>
-      <a class="btn" style="margin-top:14px;width:100%;justify-content:center" target="_blank" href="https://wa.me/923349001195?text=Assalam%20o%20Alaikum!%20I%20have%20a%20question.">Message on WhatsApp</a>
+
+<div class="topbar"><div class="wrap">
+  <span>Pakistan's Trusted Electronics Store — <b>Since 1956</b> · 17 Showrooms in Peshawar</span>
+  <span>📞 <b>+92 334 900 1195</b> &nbsp;·&nbsp; ✉️ weavers2025ai@gmail.com &nbsp;·&nbsp; Free Delivery Across Pakistan</span>
+</div></div>
+
+<header class="site"><div class="wrap">
+  <div class="head-in">
+    <a class="logo" href="index.html"><img src="assets/logo.svg" alt="Bin Mahmood Electronic"><span class="lt"><b>BIN MAHMOOD</b><span>ELECTRONIC</span></span></a>
+    <form class="search" action="shop.html" method="get"><input name="q" placeholder="Search for products, brands and categories…"><button type="submit">Search</button></form>
+    <div class="hotline"><small>Call / WhatsApp</small><b>+92 334 900 1195</b></div>
+    <div class="hicons">
+      <a class="nicon" href="account.html" title="My Account">👤</a>
+      <a class="nicon" href="checkout.html" title="Cart">🛒<span class="cartCount">0</span></a>
     </div>
-    <form class="form-card" id="cForm">
-      <h3>Send a Message</h3>
-      <div class="f-row">
-        <div class="f-group"><label>Your Name *</label><input required name="name"></div>
-        <div class="f-group"><label>Phone *</label><input required name="phone"></div>
-      </div>
-      <div class="f-group"><label>Subject</label>
-        <select name="subject"><option>Product question</option><option>Order help</option><option>Size guidance</option><option>Bulk / wholesale</option><option>Other</option></select></div>
-      <div class="f-group"><label>Message *</label><textarea required name="msg" rows="4"></textarea></div>
-      <button class="btn" style="width:100%;justify-content:center" type="submit">Send via WhatsApp</button>
-      <p style="font-size:12.5px;color:var(--muted);text-align:center;margin-top:9px">This opens WhatsApp with your message ready to send.</p>
-    </form>
   </div>
-</main>
+</div>
+<nav class="catbar"><div class="wrap" id="catnav"></div></nav>
+</header>
+
+<div class="wrap">
+  <div class="pagehero"><div class="eyebrow">Contact</div><h1>We are here to help</h1><p>Questions about a product, price or your order? Message us — we usually reply within a few hours.</p></div>
+  <div class="cols">
+    <div class="panel"><h2>Get in Touch</h2>
+      <div class="crow2"><span class="ic">💬</span><div><b>WhatsApp</b><br><a href="https://wa.me/923349001195" target="_blank">+92 334 900 1195 — chat now</a></div></div>
+      <div class="crow2"><span class="ic">📞</span><div><b>Call Us</b><br>+92 334 900 1195</div></div>
+      <div class="crow2"><span class="ic">✉️</span><div><b>Email</b><br>weavers2025ai@gmail.com</div></div>
+      <div class="crow2"><span class="ic">📍</span><div><b>Showrooms</b><br>17 showrooms — Peshawar, Pakistan</div></div>
+      <div class="crow2"><span class="ic">🕘</span><div><b>Hours</b><br>Open 7 days a week</div></div>
+    </div>
+    <div class="panel"><h2>Send a Message</h2>
+      <div class="fld"><label>Your Name *</label><input id="c-name"></div>
+      <div class="fld"><label>Phone / WhatsApp *</label><input id="c-phone"></div>
+      <div class="fld"><label>Subject</label><input id="c-sub" placeholder="e.g. Price of Haier refrigerator"></div>
+      <div class="fld"><label>Message *</label><textarea id="c-msg" rows="5"></textarea></div>
+      <button class="btn" style="background:#22b358" onclick="sendMsg()">💬 Send via WhatsApp</button>
+      <p style="color:var(--muted);font-size:12.5px;margin-top:10px">Your message opens in WhatsApp, ready to send to our team.</p>
+    </div>
+  </div>
+</div>
+
+<footer><div class="wrap">
+  <div class="foot-in">
+    <div><a class="logo" href="index.html" style="margin-bottom:14px"><img src="assets/logo.svg" alt="Bin Mahmood Electronic"><span class="lt"><b>BIN MAHMOOD</b><span>ELECTRONIC</span></span></a><p>Best online electronics store in Pakistan since 1956. 100% original products with official manufacturer warranty.</p></div>
+    <div><h4>Shop</h4><div id="foot-cats"></div></div>
+    <div><h4>Customer Care</h4><a href="shop.html">All Products</a><a href="checkout.html">Cart &amp; Checkout</a><a href="account.html">My Account</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a></div>
+    <div><h4>Get in Touch</h4><p>📞 Call / WhatsApp: +92 334 900 1195</p><p>✉️ weavers2025ai@gmail.com</p><p>📍 17 Showrooms — Peshawar, Pakistan</p></div>
+  </div>
+  <div class="foot-bar"><span>© 2026 Bin Mahmood Electronic. All rights reserved.</span><span>COD · Easypaisa · JazzCash · Bank Transfer</span></div>
+</div></footer>
+
 <script src="data/products.js"></script>
 <script src="assets/store.js"></script>
 <script>
-mount("contact.html");
-document.getElementById("cForm").addEventListener("submit", e => {
-  e.preventDefault();
-  const fd = new FormData(e.target);
-  const text = `Assalam o Alaikum! I am ${fd.get("name")} (${fd.get("phone")}). Subject: ${fd.get("subject")}. ${fd.get("msg")}`;
-  window.open(`https://wa.me/${settings.wa}?text=${encodeURIComponent(text)}`, "_blank");
-});
+const P = BM.products(); const S = BM.settings();
+(function(){ const counts={}; P.forEach(p=>counts[p.c]=(counts[p.c]||0)+1); const cats=Object.keys(counts).sort((a,b)=>counts[b]-counts[a]);
+  document.getElementById('catnav').innerHTML = `<a href="shop.html">All Products</a>` + cats.slice(0,10).map(c=>`<a href="shop.html?cat=${encodeURIComponent(c)}">${c}</a>`).join('');
+  document.getElementById('foot-cats').innerHTML = cats.slice(0,6).map(c=>`<a href="shop.html?cat=${encodeURIComponent(c)}">${c}</a>`).join(''); })();
+function sendMsg(){
+  const g=id=>document.getElementById(id).value.trim();
+  if(!g('c-name')||!g('c-phone')||!g('c-msg')){ BM.toast('Please fill name, phone and message'); return; }
+  const text=`Hello Bin Mahmood Electronic,%0A%0AName: ${encodeURIComponent(g('c-name'))}%0APhone: ${encodeURIComponent(g('c-phone'))}%0ASubject: ${encodeURIComponent(g('c-sub')||'-')}%0A%0A${encodeURIComponent(g('c-msg'))}`;
+  window.open(`https://wa.me/${S.wa}?text=${text}`,'_blank');
+}
 </script>
-<style>@media(max-width:860px){#contactGrid{grid-template-columns:1fr!important}}</style>
 </body>
 </html>
