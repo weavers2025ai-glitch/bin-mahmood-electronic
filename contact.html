@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Bin Mahmood Electronic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="page-head"><h1>Contact Us</h1><p>We reply fast — usually within the hour during shop hours.</p></div>
+  <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:24px;padding:26px 0 60px;align-items:start" id="contactGrid">
+    <div class="form-card">
+      <h3>Store Details</h3>
+      <div class="summary-line"><span>🏪 Store</span><b>Bin Mahmood Electronic</b></div>
+      <div class="summary-line"><span>📍 Address</span><b style="text-align:right">Peshawar, Pakistan — 17 Showrooms</b></div>
+      <div class="summary-line"><span>💬 WhatsApp</span><b>+92 334 900 1195</b></div>
+      <div class="summary-line"><span>📞 Phone</span><b>+92 334 900 1195</b></div>
+      <div class="summary-line"><span>✉️ Email</span><b>weavers2025ai@gmail.com</b></div>
+      <div class="summary-line"><span>🕙 Hours</span><b>Mon – Sat, 10 AM – 9 PM</b></div>
+      <a class="btn" style="margin-top:14px;width:100%;justify-content:center" target="_blank" href="https://wa.me/923349001195?text=Assalam%20o%20Alaikum!%20I%20have%20a%20question.">Message on WhatsApp</a>
+    </div>
+    <form class="form-card" id="cForm">
+      <h3>Send a Message</h3>
+      <div class="f-row">
+        <div class="f-group"><label>Your Name *</label><input required name="name"></div>
+        <div class="f-group"><label>Phone *</label><input required name="phone"></div>
+      </div>
+      <div class="f-group"><label>Subject</label>
+        <select name="subject"><option>Product question</option><option>Order help</option><option>Size guidance</option><option>Bulk / wholesale</option><option>Other</option></select></div>
+      <div class="f-group"><label>Message *</label><textarea required name="msg" rows="4"></textarea></div>
+      <button class="btn" style="width:100%;justify-content:center" type="submit">Send via WhatsApp</button>
+      <p style="font-size:12.5px;color:var(--muted);text-align:center;margin-top:9px">This opens WhatsApp with your message ready to send.</p>
+    </form>
+  </div>
+</main>
+<script src="data/products.js"></script>
+<script src="assets/store.js"></script>
+<script>
+mount("contact.html");
+document.getElementById("cForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const text = `Assalam o Alaikum! I am ${fd.get("name")} (${fd.get("phone")}). Subject: ${fd.get("subject")}. ${fd.get("msg")}`;
+  window.open(`https://wa.me/${settings.wa}?text=${encodeURIComponent(text)}`, "_blank");
+});
+</script>
+<style>@media(max-width:860px){#contactGrid{grid-template-columns:1fr!important}}</style>
+</body>
+</html>

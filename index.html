@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bin Mahmood Electronic — Premium Store</title>
+<meta name="description" content="Bin Mahmood Electronic — premium products at honest prices, delivered across Pakistan. Cash on delivery, Easypaisa, JazzCash and cards accepted.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main>
+  <section class="hero wrap">
+    <span class="kick" id="heroKicker"></span>
+    <h1 id="heroTitle"></h1>
+    <p id="heroText"></p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a class="btn" href="shop.html">Shop the Collection</a>
+      <a class="btn ghost" href="shop.html?sale=1">View Sale Items</a>
+    </div>
+    <div class="hero-img"><img id="heroImg" src="https://www.aysonline.pk/wp-content/uploads/2026/08/yoast-banner.jpg" alt="Featured collection"></div>
+    <div class="stats">
+      <div><b id="statProducts">170+</b><span>Products</span></div>
+      <div><b>17</b><span>Showrooms</span></div>
+      <div><b>Free</b><span>Nationwide Delivery</span></div>
+      <div><b>1956</b><span>Trusted Since</span></div>
+    </div>
+  </section>
+
+  <section class="block wrap">
+    <div class="sec-head"><div><h2>Shop by Category</h2><p>Find exactly what you are looking for</p></div><a class="more" href="shop.html">All products →</a></div>
+    <div class="cats" id="catTiles"></div>
+  </section>
+
+  <section class="block wrap">
+    <div class="sec-head"><div><h2>Best Sellers</h2><p>Our most loved products right now</p></div>
+      <div class="sl-nav"><button onclick="slideMove(-1)" aria-label="Previous">‹</button><button onclick="slideMove(1)" aria-label="Next">›</button></div></div>
+    <div class="slider"><div class="slider-track" id="bestTrack"></div></div>
+    <div class="dots" id="bestDots"></div>
+  </section>
+
+  <section class="block wrap">
+    <div class="sec-head"><div><h2>On Sale</h2><p>Limited-time prices — grab them before they go</p></div><a class="more" href="shop.html?sale=1">Shop all sale →</a></div>
+    <div class="grid" id="saleGrid"></div>
+  </section>
+
+  <section class="wrap"><div class="perks">
+    <div class="perk"><span class="ic">🚚</span><b>Fast Delivery</b><p>All over Pakistan, free on orders above Rs. 5,000.</p></div>
+    <div class="perk"><span class="ic">💵</span><b>Cash on Delivery</b><p>Pay at your doorstep — Easypaisa, JazzCash and cards also accepted.</p></div>
+    <div class="perk"><span class="ic">✔️</span><b>Original Products</b><p>Every item is checked before dispatch.</p></div>
+    <div class="perk"><span class="ic">↩️</span><b>Easy Support</b><p>Size or product issue? Message us on WhatsApp anytime.</p></div>
+  </div></section>
+
+  <section class="wrap"><div class="wa-strip">
+    <div><h3 id="stripTitle"></h3><p id="stripText"></p></div>
+    <a class="btn" target="_blank" href="https://wa.me/923349001195?text=Assalam%20o%20Alaikum!%20I%20want%20to%20place%20an%20order.">Chat on WhatsApp</a>
+  </div></section>
+</main>
+<script src="data/products.js"></script>
+<script src="assets/store.js"></script>
+<script>
+mount("index.html");
+const P = catalog();
+document.getElementById("heroKicker").textContent = settings.heroKicker;
+document.getElementById("heroTitle").innerHTML = settings.heroTitle;
+document.getElementById("heroText").textContent = settings.heroText;
+if (settings.heroImg) document.getElementById("heroImg").src = settings.heroImg;
+document.getElementById("stripTitle").textContent = settings.stripTitle;
+document.getElementById("stripText").textContent = settings.stripText;
+document.getElementById("statProducts").textContent = P.length + "+";
+
+const catMap = {};
+P.forEach(p => { if (p.category) { catMap[p.category] = catMap[p.category] || { n: 0, img: p.img }; catMap[p.category].n++; } });
+document.getElementById("catTiles").innerHTML = Object.keys(catMap).map(c =>
+  `<a class="cat-tile" href="shop.html?cat=${encodeURIComponent(c)}"><img loading="lazy" src="${esc(catMap[c].img)}" alt="${esc(c)}"><span class="lbl"><b>${esc(c)}</b><span>${catMap[c].n} products</span></span></a>`).join("");
+
+const best = P.filter(p => p.available !== false).slice(0, 12);
+document.getElementById("bestTrack").innerHTML = best.map(cardHTML).join("");
+let slIdx = 0, slTimer = null;
+function perView() { return innerWidth <= 760 ? 2 : innerWidth <= 1020 ? 3 : 4; }
+function slideRender() {
+  const track = document.getElementById("bestTrack");
+  const pages = Math.ceil(best.length / perView());
+  slIdx = Math.max(0, Math.min(slIdx, pages - 1));
+  track.style.transform = `translateX(-${slIdx * 100}%)`;
+  document.getElementById("bestDots").innerHTML = Array.from({ length: pages }, (_, i) => `<i class="${i === slIdx ? "on" : ""}" onclick="slideGo(${i})"></i>`).join("");
+}
+function slideGo(i) { slIdx = i; slideRender(); slideAuto(); }
+function slideMove(d) { const pages = Math.ceil(best.length / perView()); slIdx = (slIdx + d + pages) % pages; slideRender(); slideAuto(); }
+function slideAuto() { clearInterval(slTimer); slTimer = setInterval(() => slideMove(1), 4500); }
+addEventListener("resize", slideRender);
+document.querySelector(".slider").addEventListener("mouseenter", () => clearInterval(slTimer));
+document.querySelector(".slider").addEventListener("mouseleave", slideAuto);
+slideRender(); slideAuto();
+
+const sale = P.filter(p => disc(p) > 0).sort((a, b) => disc(b) - disc(a)).slice(0, 8);
+document.getElementById("saleGrid").innerHTML = sale.map(cardHTML).join("");
+</script>
+</body>
+</html>
