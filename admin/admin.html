@@ -52,7 +52,7 @@ td img{width:44px;height:44px;object-fit:contain}
   <div class="fld"><label>Admin Password</label><input type="password" id="pw" placeholder="Password"></div>
   <button class="btn" style="width:100%" onclick="doLogin()">Sign In</button>
   <p id="lerr" style="color:#c22;margin-top:10px"></p>
-  <p style="margin-top:14px">Default password: <b>binmahmood-2026</b> — change it in Settings.</p>
+  <p style="margin-top:14px">Default password: <b>admin1234</b> — change it in Settings.</p>
 </div>
 
 <div id="app">
@@ -122,7 +122,7 @@ td img{width:44px;height:44px;object-fit:contain}
 <script>
 let plist = BM.products().map(p=>({...p}));
 function doLogin(){
-  const want = localStorage.getItem('bm_admin_pw') || 'binmahmood-2026';
+  const want = localStorage.getItem('bm_admin_pw') || 'admin1234';
   if(document.getElementById('pw').value === want){ sessionStorage.setItem('bm_admin','1'); show(); }
   else document.getElementById('lerr').textContent = 'Incorrect password.';
 }
